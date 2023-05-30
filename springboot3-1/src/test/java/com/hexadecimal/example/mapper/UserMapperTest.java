@@ -70,10 +70,10 @@ public class UserMapperTest {
         IPage<UserDO> userIPage = userMapper.selectPage(page, new QueryWrapper<UserDO>()
                 .gt("age", 6));
         assertThat(page).isSameAs(userIPage);
-        System.out.println("总条数 ------> " + userIPage.getTotal());
-        System.out.println("当前页数 ------> " + userIPage.getCurrent());
-        System.out.println("当前每页显示数 ------> " + userIPage.getSize());
-        System.out.println("记录列表 ------> " + userIPage.getRecords());
+        System.out.println("总条数: " + userIPage.getTotal());
+        System.out.println("当前页数: " + userIPage.getCurrent());
+        System.out.println("当前每页显示数: " + userIPage.getSize());
+        System.out.println("记录列表: " + userIPage.getRecords());
     }
 
 }
