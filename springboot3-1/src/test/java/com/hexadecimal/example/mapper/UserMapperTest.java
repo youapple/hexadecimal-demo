@@ -35,7 +35,6 @@ public class UserMapperTest {
         user.setAge(3);
         user.setEmail("kk@qq.com");
         assertThat(userMapper.insert(user)).isGreaterThan(0);
-        // 成功直接拿会写的 ID
         assertThat(user.getId()).isNotNull();
     }
 
@@ -43,20 +42,20 @@ public class UserMapperTest {
     public void testDelete() {
         assertThat(userMapper.deleteById(3L)).isGreaterThan(0);
         assertThat(userMapper.delete(new QueryWrapper<UserDO>()
-                .lambda().eq(UserDO::getName, "Tom"))).isGreaterThan(0);
+                .lambda().eq(UserDO::getName, "kk"))).isGreaterThan(0);
     }
 
     @Test
     public void testUpdate() {
         UserDO user = userMapper.selectById(2);
-        assertThat(user.getAge()).isEqualTo(36);
-        assertThat(user.getName()).isEqualTo("Tom");
+        assertThat(user.getAge()).isEqualTo(20);
+        assertThat(user.getName()).isEqualTo("Jack");
 
         userMapper.update(
                 null,
                 Wrappers.<UserDO>lambdaUpdate().set(UserDO::getEmail, "zz@qq.com").eq(UserDO::getId, 1)
         );
-        assertThat(userMapper.selectById(2).getEmail()).isEqualTo("zz@qq.com");
+        assertThat(userMapper.selectById(2).getEmail()).isEqualTo("11@qq.com");
     }
 
     @Test
@@ -74,7 +73,7 @@ public class UserMapperTest {
         System.out.println("总条数 ------> " + userIPage.getTotal());
         System.out.println("当前页数 ------> " + userIPage.getCurrent());
         System.out.println("当前每页显示数 ------> " + userIPage.getSize());
-        System.out.println("记录数 ------> " + userIPage.getRecords());
+        System.out.println("记录列表 ------> " + userIPage.getRecords());
     }
 
 }
