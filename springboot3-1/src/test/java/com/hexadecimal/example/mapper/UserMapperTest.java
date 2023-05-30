@@ -22,12 +22,18 @@ public class UserMapperTest {
     @Resource
     private UserMapper userMapper;
 
+    /**
+     * 测试单条查询
+     */
     @Test
     public void testSelectOne() {
         UserDO user = userMapper.selectById(1L);
         System.out.println(user);
     }
 
+    /**
+     * 测试新增
+     */
     @Test
     public void testInsert() {
         UserDO user = new UserDO();
@@ -38,6 +44,9 @@ public class UserMapperTest {
         assertThat(user.getId()).isNotNull();
     }
 
+    /**
+     * 测试删除
+     */
     @Test
     public void testDelete() {
         assertThat(userMapper.deleteById(3L)).isGreaterThan(0);
@@ -45,6 +54,9 @@ public class UserMapperTest {
                 .lambda().eq(UserDO::getName, "kk"))).isGreaterThan(0);
     }
 
+    /**
+     * 测试更新
+     */
     @Test
     public void testUpdate() {
         UserDO user = userMapper.selectById(2);
@@ -58,12 +70,18 @@ public class UserMapperTest {
         assertThat(userMapper.selectById(2).getEmail()).isEqualTo("11@qq.com");
     }
 
+    /**
+     * 测试查询列表
+     */
     @Test
     public void testSelect() {
         List<UserDO> userList = userMapper.selectList(null);
         Assert.assertEquals(5, userList.size());
     }
 
+    /**
+     * 测试分页查询
+     */
     @Test
     public void testPage() {
         Page<UserDO> page = new Page<>(1, 2);
