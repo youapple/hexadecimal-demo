@@ -36,6 +36,6 @@ Program running portal: ExampleApplication
 
 > Follow my official accounts: Hexadecimal Said  
 official accounts:  
-![](D:\yjp\logo\qrcode_hexadecimal.jpg)  
+![输入图片说明](qrcode_hexadecimal.jpg)  
 blog:  
 https://www.yeekid.com/
