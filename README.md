@@ -34,6 +34,6 @@ maven: 3.5.4+
 
 > 关注我的公众号：十六进制说  
 公众号：  
-![输入图片说明](qrcode_hexadecimal.jpg)
+![输入图片说明](qrcode_hexadecimal.jpg)  
 博客：  
 https://www.yeekid.com/
