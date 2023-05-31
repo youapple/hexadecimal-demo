@@ -2,13 +2,13 @@
 
 #### Project Description
 
-The hexadecimal-demo project is the source code of the sample project of the public account & blog "Hexadecimal Theory", which can be used publicly.
+The hexadecimal-demo project is the source code of the sample project of the public account & blog "Hexadecimal Said", which can be used publicly.
 
 #### Software Architecture
 
-Editor: IntelliJ IDEA 2022.1 
-jdk: 17+ 
-maven: 3.5.4+
+Editor: IntelliJ IDEA 2022.1  
+jdk: 17+  
+maven: 3.5.4+  
 
 #### Installation
 
@@ -34,7 +34,7 @@ Program running portal: ExampleApplication
 1. If this project helps you, please help star. 
 2. If you have any questions, you can feedback to me through issues or public accounts.
 
-> Follow my official accounts: hexadecimal said  
+> Follow my official accounts: Hexadecimal Said  
 official accounts:  
 ![](D:\yjp\logo\qrcode_hexadecimal.jpg)  
 blog:  
