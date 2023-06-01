@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    #数据库驱动完整类名
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/hexadecimal_demo?characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+  jpa:
+    hibernate:
+      # ddl-auto 枚举：
+      # none(默认):禁用DDL处理
+      # validate：验证schema,不对数据库做任何操作
+      # update：更新schema
+      # create：创建schema，并销毁之前数据
+      # create-drop：会话创建时创建schema，会话关闭时销毁schema
+      ddl-auto: update
+    # jpa配置：在控制台显示Hibernate的sql(可选)
+    show-sql: true
+
+# Logger Config
+logging:
+  level:
+    com.hexadecimal: debug
