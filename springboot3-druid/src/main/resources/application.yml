@@ -1,56 +1,14 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    spring:
-      datasource:
     url: jdbc:mysql://127.0.0.1:3306/hexadecimal_demo?characterEncoding=utf8&serverTimezone=Asia/Shanghai
     username: root
     password: 123456
     # druid 连接池管理
     druid:
       filter:
-        slf4j:
-          # 关闭连接日志
-          connection-log-enabled: false
-          # 关闭数据源日志
-          data-source-log-enabled: false
-          # Druid日志配置
-          enabled: true
-          # 开启结果映射日志
-          result-set-log-enabled: true
-          # 开启执行SQL日志
-          statement-executable-sql-log-enable: true
-        stat:
-          db-type: mysql
-          # 配置过滤器
-          # SQL监控配置
-          enabled: true
-          # 是否开启慢SQL统计
-          log-slow-sql: true
-          # 是否开启合并SQL
-          # 开启后，select * from table where id = 1 和 select * from table where id = 2 将合并为 select * from table where id = ?
-          merge-sql: true
-          # 慢SQL日志级别
-          slow-sql-log-level: ERROR
-          # 慢SQL时间
-          slow-sql-millis: 10000
-        wall:
-          config:
-            # 禁止对表ALTER
-            alter-table-allow: false
-            # 允许删除
-            delete-allow: true
-            # 禁止删除时无条件
-            delete-where-none-check: true
-            # 禁止对表DROP
-            drop-table-allow: false
-            # 允许新增
-            insert-allow: true
-            # 允许更新
-            update-allow: true
-            # 禁止更新时无条件
-            update-where-none-check: true
-          # SQL防火墙配置
+        config:
+          #开启密钥加密
           enabled: true
       # 配置默认的监控统计拦截的Filter
       # 不配置则监控页面中的SQL无法统计
@@ -74,17 +32,6 @@ spring:
       # 是否开启PSCache，即是否缓存preparedStatement（提升写入、查询效率）
       # 建议在支持游标的数据库开启，例如：Oracle
       pool-prepared-statements: false
-      stat-view-servlet:
-        # 访问白名单
-        allow: 127.0.0.1
-        # 配置统计页面
-        enabled: true
-        # 访问密码
-        login-password: 123456
-        # 访问用户名
-        login-username: root
-        # 允许重置监控数据
-        reset-enable: true
       # 检测获取连接时的有效性
       # 开启后会影响性能
       test-on-borrow: false
@@ -101,6 +48,17 @@ spring:
       validation-query: SELECT 1
       # 检测连接是否有效的超时时间
       validation-query-timeout: 1
+      stat-view-servlet:
+        # 访问白名单
+        allow: 127.0.0.1
+        # 配置统计页面
+        enabled: true
+        # 访问密码
+        login-password: 123456
+        # 访问用户名
+        login-username: root
+        # 允许重置监控数据
+        reset-enable: true
       web-stat-filter:
         # 配置统计页面过滤
         enabled: true

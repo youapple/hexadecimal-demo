@@ -7,6 +7,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -19,7 +20,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class UserMapperTest {
+public class UserRepositoryTest {
     @Resource
     private UserRepository userRepository;
 
@@ -51,7 +52,7 @@ public class UserMapperTest {
      */
     @Test
     public void testDelete() {
-        userRepository.deleteById(3L);
+        userRepository.deleteById(6L);
         System.out.println("deleteById success");
     }
 
@@ -83,10 +84,24 @@ public class UserMapperTest {
      */
     @Test
     public void testPage() {
-        int page = 1, size = 10;
+        int page = 0, size = 2;
         Pageable pageable = PageRequest.of(page, size, Sort.by("id").descending());
-        userRepository.findAll(pageable);
-        userRepository.findByName("A", pageable);
+        Page<UserDO> page1 = userRepository.findAll(pageable);
+        System.out.println("记录列表1: " + page1.getContent());
+
+        Page<UserDO> page2 = userRepository.findByName("Jack", pageable);
+        System.out.println("记录列表2: " + page2.getContent());
     }
+
+    /**
+     * 测试根据方法名来自动生成 SQL
+     */
+    @Test
+    public void testFindByNameLikeOrderByAgeAsc() {
+        List<UserDO> list = userRepository.findByNameContainingOrderByAgeDesc("a");
+        System.out.println("记录列表: " + list);
+    }
+
+
 
 }
