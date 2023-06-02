@@ -1,0 +1,4 @@
+# Logger Config
+logging:
+  level:
+    com.hexadecimal: debug
