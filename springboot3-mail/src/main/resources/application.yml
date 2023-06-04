@@ -1,3 +1,11 @@
+spring:
+  mail:
+    # 你的邮箱，发邮件的邮箱
+    username: youapple2006@163.com
+    # 你的授权码，邮箱里面设置->POP3/SMTP/IMAP
+    password: CRBNJJUNQVXHNGHP
+    host: smtp.163.com
+
 # Logger Config
 logging:
   level:
