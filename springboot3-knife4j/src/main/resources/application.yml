@@ -1,13 +1,23 @@
-spring:
-  datasource:
-    #数据库驱动完整类名
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    #数据库连接url
-    url: jdbc:mysql://127.0.0.1:3306/hexadecimal_demo
-    #数据库用户名
-    username: root
-    #数据库密码
-    password: 123456
+server:
+  port: 8080
+# springdoc-openapi项目配置，访问地址：http://127.0.0.1:8080/doc.html
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: 'default'
+      paths-to-match: '/**'
+      packages-to-scan: com.hexadecimal.example
+
+# knife4j的增强配置，不需要增强可以不配
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
 
 # Logger Config
 logging:
