@@ -10,6 +10,8 @@ spring:
         config:
           #开启密钥加密
           enabled: true
+        stat:
+          enabled: true
       # 配置默认的监控统计拦截的Filter
       # 不配置则监控页面中的SQL无法统计
       # stat - SQL监控配置
