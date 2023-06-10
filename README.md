@@ -18,8 +18,15 @@ maven: 3.5.4+
 
 #### 使用说明
 
-程序运行入口: ExampleApplication
-1. springboot3-mybatisplus：整合mybatis-plus
+程序运行入口: ExampleApplication，示例工程：springboot3-example  
+1. springboot3-mybatisplus：整合mybatis-plus  
+2. springboot3-druid：整合Druid  
+3. springboot3-jpa：整合jpa  
+4. springboot3-dynamic-datasource：整合多数据源(Dynamic DataSource)  
+5. springboot3-mail：整合mail  
+6. springboot3-swagger：整合swagger  
+7. springboot3-knife4j：整合knife4j  
+
 
 #### 参与贡献
 
