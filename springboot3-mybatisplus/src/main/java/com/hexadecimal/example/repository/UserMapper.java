@@ -1,4 +1,4 @@
-package com.hexadecimal.example.mapper;
+package com.hexadecimal.example.repository;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.hexadecimal.example.model.UserDO;

@@ -1,7 +1,6 @@
-package com.hexadecimal.example.mapper;
+package com.hexadecimal.example.repository;
 
 import com.hexadecimal.example.model.UserDO;
-import com.hexadecimal.example.repository.UserRepository;
 import jakarta.annotation.Resource;
 import org.junit.Assert;
 import org.junit.Test;

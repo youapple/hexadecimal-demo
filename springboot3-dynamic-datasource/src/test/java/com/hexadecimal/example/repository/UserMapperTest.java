@@ -1,4 +1,4 @@
-package com.hexadecimal.example.mapper;
+package com.hexadecimal.example.repository;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;

@@ -1,1 +1,1 @@
-package com.hexadecimal.example.mapper;
+package com.hexadecimal.example.repository;
