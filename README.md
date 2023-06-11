@@ -6,7 +6,8 @@ hexadecimal-demo项目是公众号&博客《十六进制说》的示例项目源
 
 #### 软件架构
 
-编辑器：IntelliJ IDEA 2022.1  
+编辑器: IntelliJ IDEA 2022.1  
+spring boot: 3.1  
 jdk: 17+  
 maven: 3.5.4+  
 
