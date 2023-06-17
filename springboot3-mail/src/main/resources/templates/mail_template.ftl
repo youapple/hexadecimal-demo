@@ -8,12 +8,12 @@
 </head>
 <body>
 <div style="background-color:#ECECEC; padding: 35px;">
-    <table cellpadding="0" align="center">
+    <table>
         <tbody>
         <tr>
             <td style="word-break:break-all">
                 <div style="width:100%;margin:0 auto;">
-                    <div style="padding:10px 10px 0;border-top:1px solid #ccc;color:#747474;margin-bottom:20px;line-height:1.3em;font-size:12px;">
+                    <div>
                         <p>测试模板邮件</p>
                         <p>{0}</p>
                         <p>{1}</p>

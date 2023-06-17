@@ -20,6 +20,8 @@ maven: 3.5.4+
 #### 使用说明
 
 程序运行入口: ExampleApplication，示例工程：springboot3-example  
+
+--已完成  
 1. springboot3-mybatisplus：整合mybatis-plus  
 2. springboot3-druid：整合Druid  
 3. springboot3-jpa：整合jpa  
@@ -28,6 +30,28 @@ maven: 3.5.4+
 6. springboot3-swagger：整合swagger  
 7. springboot3-knife4j：整合knife4j  
 
+--待排期  
+8. springboot3-nacos: 整合nacos  
+9. springboot3-dubbo: 整合dubbo  
+10. springboot3-redis: 整合redis  
+11. springboot3-rabbitmq: 整合rabbitmq  
+12. springboot3-kafka: 整合kafka  
+13. springboot3-rocketmq: 整合rocketmq  
+14. springboot3-quartz: 整合quartz  
+15. springboot3-xxl-job: 整合xxl-job  
+16. springboot3-mongodb: 整合mongodb  
+17. springboot3-shiro: 整合shiro  
+18. springboot3-security: 整合security  
+19. springboot3-jwt: 整合jwt  
+20. springboot3-websocket: 整合websocket  
+21. springboot3-docker: docker发布  
+22. springboot3-elasticsearch: 整合elasticsearch  
+23. springboot3-minio: 整合minio  
+24. springboot3-shardingjdbc: 整合shardingjdbc  
+25. springboot3-seata: 整合seata  
+26. springboot3-cas: 整合cas  
+27. springboot3-ldap: 整合ldap  
+28. springboot3-oauth: 整合oauth  
 
 #### 参与贡献
 
