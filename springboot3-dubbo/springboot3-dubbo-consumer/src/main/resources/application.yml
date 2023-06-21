@@ -1,0 +1,15 @@
+server:
+  port: 8082
+dubbo:
+  application:
+    name: springboot3-dubbo-consumer
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    address: zookeeper://${zookeeper.address:127.0.0.1}:2181
+
+# Logger Config
+logging:
+  level:
+    com.hexadecimal: debug
