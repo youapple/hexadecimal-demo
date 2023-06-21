@@ -3,6 +3,7 @@ server:
 dubbo:
   application:
     name: springboot3-dubbo-consumer
+    qosEnable: false
   protocol:
     name: dubbo
     port: -1
