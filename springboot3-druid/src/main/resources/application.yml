@@ -1,9 +1,6 @@
 spring:
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/hexadecimal_demo?characterEncoding=utf8&serverTimezone=Asia/Shanghai
-    username: root
-    password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
     # druid 连接池管理
     druid:
       filter:
@@ -72,7 +69,11 @@ spring:
         session-stat-max-count: 100
         # 过滤路径
         url-pattern: /*
-
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://127.0.0.1:3306/hexadecimal_demo?characterEncoding=utf8&serverTimezone=Asia/Shanghai
+      username: root
+      password: 123456
+      db-type: mysql
 mybatis-plus:
   global-config:
     db-config:
