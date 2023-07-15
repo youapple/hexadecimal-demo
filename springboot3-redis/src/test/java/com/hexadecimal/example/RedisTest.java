@@ -24,7 +24,10 @@ public class RedisTest {
         redisTemplate.boundValueOps("userKey").set(userDO);
 
         UserDO rs = (UserDO) redisTemplate.boundValueOps("userKey").get();
-        System.out.println("user = " + rs.toString());
+        System.out.println("rs = " + rs.toString());
+
+        UserDO rs2 = (UserDO) redisTemplate.opsForValue().get("userKey");
+        System.out.println("rs2 = " + rs2.toString());
     }
 
 }
