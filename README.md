@@ -23,18 +23,18 @@ maven: 3.5.4+
 
 --已完成  
 1. springboot3-mybatisplus：整合mybatis-plus  
-2. springboot3-druid：整合Druid，使用druid-spring-boot-3-starter集成，目前除了数据源能加载成功外，其余配置项采用默认的配置，自定义配置无法生效。
-   springboot3-druid-2：整合Druid，使用原生方式集成，除druid控制台无法打开外，其余均正常使用。
+2. springboot3-druid：整合Druid，使用druid-spring-boot-3-starter集成，目前除了数据源能加载成功外，其余配置项采用默认的配置，自定义配置无法生效。  
+   springboot3-druid-2：整合Druid，使用原生方式集成，除druid控制台无法打开外，其余均可正常使用。
 3. springboot3-jpa：整合jpa  
 4. springboot3-dynamic-datasource：整合多数据源(Dynamic DataSource)  
 5. springboot3-mail：整合mail  
 6. springboot3-swagger：整合swagger  
 7. springboot3-knife4j：整合knife4j  
 8. springboot3-dubbo: 整合dubbo  
+10. springboot3-redis: 整合redis  
 
 --待排期  
 9. springboot3-nacos: 整合nacos    
-10. springboot3-redis: 整合redis  
 11. springboot3-rabbitmq: 整合rabbitmq  
 12. springboot3-kafka: 整合kafka  
 13. springboot3-rocketmq: 整合rocketmq  
