@@ -31,10 +31,10 @@ maven: 3.5.4+
 6. springboot3-swagger：整合swagger  
 7. springboot3-knife4j：整合knife4j  
 8. springboot3-dubbo: 整合dubbo  
-10. springboot3-redis: 整合redis  
+9. springboot3-redis: 整合redis  
 
 --待排期  
-9. springboot3-nacos: 整合nacos    
+10. springboot3-nacos: 整合nacos    
 11. springboot3-rabbitmq: 整合rabbitmq  
 12. springboot3-kafka: 整合kafka  
 13. springboot3-rocketmq: 整合rocketmq  
