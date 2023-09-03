@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    #数据库驱动完整类名
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    #数据库连接url
+    url: jdbc:mysql://127.0.0.1:3306/hexadecimal_demo
+    #数据库用户名
+    username: root
+    #数据库密码
+    password: 123456
+
+# Logger Config
+logging:
+  level:
+    com.hexadecimal: debug
