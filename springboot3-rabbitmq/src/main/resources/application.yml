@@ -1,13 +1,18 @@
 spring:
-  datasource:
-    #数据库驱动完整类名
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    #数据库连接url
-    url: jdbc:mysql://127.0.0.1:3306/hexadecimal_demo
-    #数据库用户名
-    username: root
-    #数据库密码
-    password: 123456
+  application:
+    name: springboot3-rabbitmq
+  # 配置rabbitmq
+  rabbitmq:
+    # 主机ip，修改成实际rabbitmq配置
+    host: 127.0.0.1
+    # 端口，修改成实际rabbitmq配置
+    port: 5672
+    # 用户名，修改成实际rabbitmq配置
+    username: guest
+    # 用户密码，修改成实际rabbitmq配置
+    password: guest
+    # 虚拟host可以不设置，默认配置写virtual-host: /
+    virtual-host: /example
 
 # Logger Config
 logging:
