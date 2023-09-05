@@ -1,15 +1,31 @@
 spring:
-  datasource:
-    #数据库驱动完整类名
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    #数据库连接url
-    url: jdbc:mysql://127.0.0.1:3306/hexadecimal_demo
-    #数据库用户名
-    username: root
-    #数据库密码
-    password: 123456
+  application:
+    name: springboot3-rabbitmq
+
+rocketmq:
+  consumer:
+    #group: springboot3_consumer_group
+    # 一次拉取消息最大值，注意是拉取消息的最大值而非消费最大值
+    pull-batch-size: 10
+  name-server: 127.0.0.1:9876
+  producer:
+    # 发送同一类消息的设置为同一个group，保证唯一
+    group: springboot3_producer_group
+    # 发送消息超时时间，默认3000
+    sendMessageTimeout: 10000
+    # 发送消息失败重试次数，默认2
+    retryTimesWhenSendFailed: 2
+    # 异步消息重试此处，默认2
+    retryTimesWhenSendAsyncFailed: 2
+    # 消息最大长度，默认1024 * 1024 * 4(默认4M)
+    maxMessageSize: 4096
+    # 压缩消息阈值，默认4k(1024 * 4)
+    compressMessageBodyThreshold: 4096
+    # 是否在内部发送失败时重试另一个broker，默认false
+    retryNextServer: false
 
 # Logger Config
 logging:
   level:
     com.hexadecimal: debug
+    RocketmqClient: ERROR
