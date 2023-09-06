@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Slf4j
 @Controller
 @RequestMapping(path = "/quartz")
@@ -25,7 +28,7 @@ public class QuartzController {
      * @param triggerGroup 触发器组，示例：helloTriggerGroup
      * @param jobClass     调度任务，示例：HelloJob
      * @param cron         cron表达式，示例：0 0/1 * * * ?
-     * @return ResultMap
+     * @return String
      */
     @PostMapping(path = "/addJob")
     @ResponseBody
@@ -44,7 +47,7 @@ public class QuartzController {
      *
      * @param jobName  任务名称
      * @param jobGroup 任务组
-     * @return ResultMap
+     * @return String
      */
     @PostMapping(path = "/pauseJob")
     @ResponseBody
@@ -63,7 +66,7 @@ public class QuartzController {
      *
      * @param jobName  任务名称
      * @param jobGroup 任务组
-     * @return ResultMap
+     * @return String
      */
     @PostMapping(path = "/resumeJob")
     @ResponseBody
@@ -83,7 +86,7 @@ public class QuartzController {
      * @param jobName  任务名称
      * @param jobGroup 任务组
      * @param cron     cron表达式
-     * @return ResultMap
+     * @return String
      */
     @PostMapping(path = "/rescheduleJob")
     @ResponseBody
@@ -102,7 +105,7 @@ public class QuartzController {
      *
      * @param jobName  任务名称
      * @param jobGroup 任务组
-     * @return ResultMap
+     * @return String
      */
     @PostMapping(path = "/deleteJob")
     @ResponseBody
@@ -113,6 +116,22 @@ public class QuartzController {
         } catch (Exception e) {
             e.printStackTrace();
             return "fail";
+        }
+    }
+
+    /**
+     * 查询所有定时任务
+     *
+     * @return String
+     */
+    @PostMapping(path = "/listJobs")
+    @ResponseBody
+    public List<String> listJobs() {
+        try {
+            return quartzJobService.listJobs();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ArrayList<String>();
         }
     }
 
