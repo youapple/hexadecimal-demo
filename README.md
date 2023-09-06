@@ -21,7 +21,7 @@ maven: 3.5.4+
 
 程序运行入口: ExampleApplication，示例工程：springboot3-example  
 
---已完成  
+-- 已完成  
 1. springboot3-mybatisplus：整合mybatis-plus  
 2. springboot3-druid：整合Druid，使用druid-spring-boot-3-starter集成，目前除了数据源能加载成功外，其余配置项采用默认的配置，自定义配置无法生效。  
    springboot3-druid-2：整合Druid，使用原生方式集成，除druid控制台无法打开外，其余均可正常使用。
@@ -35,10 +35,10 @@ maven: 3.5.4+
 10. springboot3-rabbitmq: 整合rabbitmq  
 11. springboot3-kafka: 整合kafka  
 12. springboot3-rocketmq: 整合rocketmq  
+13. springboot3-quartz: 整合quartz  
 
---待排期  
-13. springboot3-nacos: 整合nacos    
-14. springboot3-quartz: 整合quartz  
+-- 待排期  
+14. springboot3-nacos: 整合nacos    
 15. springboot3-xxl-job: 整合xxl-job  
 16. springboot3-mongodb: 整合mongodb  
 17. springboot3-shiro: 整合shiro  
