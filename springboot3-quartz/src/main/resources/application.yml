@@ -1,0 +1,71 @@
+spring:
+  application:
+    name: springboot3-quartz
+  datasource:
+    #数据库驱动完整类名
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/hexadecimal_demo?characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+  jpa:
+    hibernate:
+      # ddl-auto 枚举：
+      # none(默认):禁用DDL处理
+      # validate：验证schema,不对数据库做任何操作
+      # update：更新schema
+      # create：创建schema，并销毁之前数据
+      # create-drop：会话创建时创建schema，会话关闭时销毁schema
+      ddl-auto: update
+    # jpa配置：在控制台显示Hibernate的sql(可选)
+    show-sql: true
+
+  quartz:
+    # 任务存储类型
+    job-store-type: jdbc
+    # 关闭时等待任务完成
+    wait-for-jobs-to-complete-on-shutdown: false
+    # 是否覆盖已有的任务
+    overwrite-existing-jobs: true
+    # 是否自动启动计划程序
+    auto-startup: true
+    # 延迟启动
+    startup-delay: 0s
+    jdbc:
+      # 数据库架构初始化模式（never：从不进行初始化；always：每次都清空数据库进行初始化；embedded：只初始化内存数据库（默认值））
+      # 注意：第一次启动后，需要将always改为never，否则后续每次启动都会重新初始化quartz数据库
+      initialize-schema: never
+      # 用于初始化数据库架构的SQL文件的路径
+      # schema: classpath:sql/tables_mysql_innodb.sql
+    # 相关属性配置
+    properties:
+      org:
+        quartz:
+          scheduler:
+            # 调度器实例名称
+            instanceName: QuartzScheduler
+            # 分布式节点ID自动生成
+            instanceId: AUTO
+          jobStore:
+            class: org.springframework.scheduling.quartz.LocalDataSourceJobStore
+            driverDelegateClass: org.quartz.impl.jdbcjobstore.StdJDBCDelegate
+            # 表前缀
+            tablePrefix: QRTZ_
+            # 是否开启集群
+            isClustered: true
+            # 数据源别名（自定义）
+            dataSource: quartz
+            # 分布式节点有效性检查时间间隔（毫秒）
+            clusterCheckinInterval: 10000
+            useProperties: false
+          # 线程池配置
+          threadPool:
+            class: org.quartz.simpl.SimpleThreadPool
+            threadCount: 10
+            threadPriority: 5
+            threadsInheritContextClassLoaderOfInitializingThread: true
+
+
+# Logger Config
+logging:
+  level:
+    com.hexadecimal: debug
