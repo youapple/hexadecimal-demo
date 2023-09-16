@@ -1,3 +1,6 @@
+spring:
+  application:
+    name: springboot3-swagger
 server:
   port: 8080
 # 配置swagger文档的访问路径，访问地址：http://127.0.0.1:8080/swagger-ui.html

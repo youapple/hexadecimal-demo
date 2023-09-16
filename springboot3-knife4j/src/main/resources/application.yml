@@ -1,3 +1,6 @@
+spring:
+  application:
+    name: springboot3-knife4j
 server:
   port: 8080
 # springdoc-openapi项目配置，访问地址：http://127.0.0.1:8080/doc.html
