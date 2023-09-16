@@ -36,10 +36,10 @@ maven: 3.5.4+
 11. springboot3-kafka: 整合kafka  
 12. springboot3-rocketmq: 整合rocketmq  
 13. springboot3-quartz: 整合quartz  
+14. springboot3-xxl-job: 整合xxl-job
 
 -- 待排期  
-14. springboot3-nacos: 整合nacos    
-15. springboot3-xxl-job: 整合xxl-job  
+15. springboot3-nacos: 整合nacos    
 16. springboot3-mongodb: 整合mongodb  
 17. springboot3-shiro: 整合shiro  
 18. springboot3-security: 整合security  
