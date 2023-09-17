@@ -45,14 +45,7 @@ maven: 3.5.4+
 18. springboot3-security: 整合security  
 19. springboot3-jwt: 整合jwt  
 20. springboot3-websocket: 整合websocket  
-21. springboot3-docker: docker发布  
-22. springboot3-elasticsearch: 整合elasticsearch  
-23. springboot3-minio: 整合minio  
-24. springboot3-shardingjdbc: 整合shardingjdbc  
-25. springboot3-seata: 整合seata  
-26. springboot3-cas: 整合cas  
-27. springboot3-ldap: 整合ldap  
-28. springboot3-oauth: 整合oauth  
+21. springboot3-docker: docker发布
 
 #### 参与贡献
 
