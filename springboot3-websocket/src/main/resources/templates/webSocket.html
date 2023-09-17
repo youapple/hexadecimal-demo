@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>WebSocket通讯</title>
+</head>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<script>
+    var socket;
+
+    //打开WebSocket
+    function openSocket() {
+        if (typeof (WebSocket) === "undefined") {
+            console.log("您的浏览器不支持WebSocket");
+        } else {
+            console.log("您的浏览器支持WebSocket");
+            //实现化WebSocket对象，指定要连接的服务器地址与端口,建立连接.
+            //等同于socket = new WebSocket("ws://localhost:8080/xxx/im/25");
+            //var socketUrl="${request.contextPath}/im/"+$("#uid").val();
+            var socketUrl = "http://localhost:8080/socket/server/" + $("#uid").val();
+            //将https与http协议替换为ws协议
+            socketUrl = socketUrl.replace("https", "ws").replace("http", "ws");
+            console.log(socketUrl);
+            if (socket != null) {
+                socket.close();
+                socket = null;
+            }
+            socket = new WebSocket(socketUrl);
+            //打开事件
+            socket.onopen = function () {
+                console.log("WebSocket已打开");
+                //socket.send("这是来自客户端的消息" + location.href + new Date());
+            };
+            //获得消息事件
+            socket.onmessage = function (msg) {
+                console.log(msg.data);
+                //发现消息进入,开始处理前端触发逻辑
+            };
+            //关闭事件
+            socket.onclose = function () {
+                console.log("WebSocket已关闭");
+            };
+            //发生了错误事件
+            socket.onerror = function () {
+                console.log("WebSocket发生了错误");
+            }
+        }
+    }
+
+    //发送消息
+    function sendMessage() {
+        if (typeof (WebSocket) === "undefined") {
+            console.log("您的浏览器不支持WebSocket");
+        } else {
+            console.log("您的浏览器支持WebSocket");
+            console.log('{"toUID":"' + $("#toUID").val() + '","Msg":"' + $("#msg").val() + '"}');
+            socket.send('{"toUID":"' + $("#toUID").val() + '","Msg":"' + $("#msg").val() + '"}');
+        }
+    }
+</script>
+<body>
+<p>【uid】：
+<div><input id="uid" name="uid" type="text" value="1"></div>
+<p>【toUID】：
+<div><input id="toUID" name="toUID" type="text" value="2"></div>
+<p>【Msg】：
+<div><input id="msg" name="msg" type="text" value="hello WebSocket2"></div>
+<p>【第一步操作:】：
+<div>
+    <button onclick="openSocket()">开启socket</button>
+</div>
+<p>【第二步操作:】：
+<div>
+    <button onclick="sendMessage()">发送消息</button>
+</div>
+</body>
+
+</html>
