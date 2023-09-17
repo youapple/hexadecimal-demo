@@ -10,7 +10,7 @@ spring:
         group: DEFAULT_GROUP
         server-addr: localhost:8848
       config:
-        # 配置所属命名空间的id,此处我们配置名称为dev的id，可以在命名空间列表查看id的值
+        # 配置所属命名空间的id，我们配置名称为dev的id，在命名空间列表查看id的值
         namespace: fdf94e5a-fd74-43d7-a22f-2afe9bd3e871
         # 文件名，如果没有配置则默认为 ${spring.application.name}
         prefix: springboot3-nacos
