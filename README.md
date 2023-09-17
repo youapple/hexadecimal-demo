@@ -37,9 +37,9 @@ maven: 3.5.4+
 12. springboot3-rocketmq: 整合rocketmq  
 13. springboot3-quartz: 整合quartz  
 14. springboot3-xxl-job: 整合xxl-job
+15. springboot3-nacos: 整合nacos。采用spring-cloud-starter-alibaba-nacos-config和spring-cloud-starter-alibaba-nacos-discovery的2022.0.0.0-RC2版本（仅支持springboot3.0.2），而非存粹的springboot3版本。
 
 -- 待排期  
-15. springboot3-nacos: 整合nacos    
 16. springboot3-mongodb: 整合mongodb  
 17. springboot3-shiro: 整合shiro  
 18. springboot3-security: 整合security  

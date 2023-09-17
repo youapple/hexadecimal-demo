@@ -1,13 +1,32 @@
 spring:
-  datasource:
-    #数据库驱动完整类名
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    #数据库连接url
-    url: jdbc:mysql://127.0.0.1:3306/hexadecimal_demo
-    #数据库用户名
-    username: root
-    #数据库密码
-    password: 123456
+  application:
+    name: springboot3-nacos
+  cloud:
+    nacos:
+      username: nacos
+      password: nacos
+      discovery:
+        namespace: f21e4506-09df-4d8e-8cfb-d696108262a1
+        group: DEFAULT_GROUP
+        server-addr: localhost:8848
+      config:
+        # 配置所属命名空间的id,此处我们配置名称为dev的id，可以在命名空间列表查看id的值
+        namespace: fdf94e5a-fd74-43d7-a22f-2afe9bd3e871
+        # 文件名，如果没有配置则默认为 ${spring.application.name}
+        prefix: springboot3-nacos
+        # 配置所属分组
+        group: DEFAULT_GROUP
+        # 后缀名，只支持 properties 和 yaml 类型
+        file-extension: yaml
+        # nacos服务器地址
+        server-addr: localhost:8848
+        # 配置自动刷新
+        refresh-enabled: true
+        # 启用远程同步配置
+        enable-remote-sync-config: true
+  config:
+    import:
+      - optional:nacos:${spring.application.name}.${spring.cloud.nacos.config.file-extension}
 
 # Logger Config
 logging:
