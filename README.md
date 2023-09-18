@@ -42,10 +42,10 @@ maven: 3.5.4+
 
 -- 待排期  
 17. springboot3-mongodb: 整合mongodb  
-18. springboot3-shiro: 整合shiro  
-19. springboot3-security: 整合security
-20. springboot3-jwt: 整合jwt
-21. springboot3-docker: docker发布
+18. springboot3-shiro: 整合shiro   
+19. springboot3-security: 整合security  
+20. springboot3-jwt: 整合jwt  
+21. springboot3-docker: docker发布  
 
 #### 参与贡献
 
