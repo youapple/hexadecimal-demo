@@ -26,6 +26,7 @@ public class RabbitmqConfig {
 
     /**
      * 队列名称：directQueue
+     *
      * @return
      */
     @Bean
@@ -34,7 +35,7 @@ public class RabbitmqConfig {
         // exclusive: 默认也是false，只能被当前创建的连接使用，而且当连接关闭后队列即被删除。此参考优先级高于durable
         // autoDelete: 是否自动删除，当没有生产者或者消费者使用此队列，该队列会自动删除。
         // 一般设置一下队列的持久化就好，其余两个就是默认false
-        Queue queue = new Queue("directQueue",true);
+        Queue queue = new Queue("directQueue", true);
         // 声明队列，启动时自动创建队列
         rabbitAdmin().declareQueue(queue);
         return queue;
@@ -42,15 +43,17 @@ public class RabbitmqConfig {
 
     /**
      * Direct交换机名称：directExchange
+     *
      * @return
      */
     @Bean
     public DirectExchange directExchange() {
-        return new DirectExchange("directExchange",true,false);
+        return new DirectExchange("directExchange", true, false);
     }
 
     /**
      * 将队列和交换机绑定, 并设置匹配路由键：directRouting
+     *
      * @return
      */
     @Bean
@@ -61,7 +64,7 @@ public class RabbitmqConfig {
     /********************************主题订阅*************************************/
     @Bean
     public Queue topicFirstQueue() {
-        Queue queue = new Queue("topicFirstQueue",true);
+        Queue queue = new Queue("topicFirstQueue", true);
         // 声明队列，启动时自动创建队列
         rabbitAdmin().declareQueue(queue);
         return queue;
@@ -69,7 +72,7 @@ public class RabbitmqConfig {
 
     @Bean
     public Queue topicSecondQueue() {
-        Queue queue = new Queue("topicSecondQueue",true);
+        Queue queue = new Queue("topicSecondQueue", true);
         // 声明队列，启动时自动创建队列
         rabbitAdmin().declareQueue(queue);
         return queue;
@@ -77,7 +80,7 @@ public class RabbitmqConfig {
 
     @Bean
     public TopicExchange topicExchange() {
-        return new TopicExchange("topicExchange",true,false);
+        return new TopicExchange("topicExchange", true, false);
     }
 
     @Bean
@@ -93,7 +96,7 @@ public class RabbitmqConfig {
     /********************************消息广播*************************************/
     @Bean
     public Queue fanoutFirstQueue() {
-        Queue queue = new Queue("fanoutFirstQueue",true);
+        Queue queue = new Queue("fanoutFirstQueue", true);
         // 声明队列，启动时自动创建队列
         rabbitAdmin().declareQueue(queue);
         return queue;
@@ -101,7 +104,7 @@ public class RabbitmqConfig {
 
     @Bean
     public Queue fanoutSecondQueue() {
-        Queue queue = new Queue("fanoutSecondQueue",true);
+        Queue queue = new Queue("fanoutSecondQueue", true);
         // 声明队列，启动时自动创建队列
         rabbitAdmin().declareQueue(queue);
         return queue;
@@ -109,7 +112,7 @@ public class RabbitmqConfig {
 
     @Bean
     public FanoutExchange fanoutExchange() {
-        return new FanoutExchange("fanoutExchange",true,false);
+        return new FanoutExchange("fanoutExchange", true, false);
     }
 
     @Bean
