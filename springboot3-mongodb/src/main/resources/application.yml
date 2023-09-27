@@ -4,7 +4,7 @@ spring:
   data:
     mongodb:
       #数据库连接url，集群模式：mongodb://user:pwd@ip1:port1,ip2:port2/database
-      uri: mongodb://testadmin:123456@47.107.36.2:27017/test
+      uri: mongodb://testadmin:123456@127.0.0.1:27017/test
 
 # Logger Config
 logging:
