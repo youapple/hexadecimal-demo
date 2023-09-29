@@ -1,6 +1,5 @@
 package com.hexadecimal.example.quartz;
 
-import lombok.SneakyThrows;
 import org.quartz.*;
 import org.quartz.impl.matchers.GroupMatcher;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -78,7 +77,6 @@ public class QuartzJobService {
      * @param jobName
      * @param jobGroup
      */
-    @SneakyThrows
     public void resumeJob(String jobName, String jobGroup) throws Exception {
         scheduler.resumeJob(JobKey.jobKey(jobName, jobGroup));
     }
