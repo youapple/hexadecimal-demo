@@ -40,9 +40,9 @@ maven: 3.5.4+
 15. springboot3-nacos: 整合nacos。采用spring-cloud-starter-alibaba-nacos-config和spring-cloud-starter-alibaba-nacos-discovery的2022.0.0.0-RC2版本（仅支持springboot3.0.2），而非存粹的springboot3版本。
 16. springboot3-websocket: 整合websocket
 17. springboot3-mongodb: 整合mongodb
+18. springboot3-shiro: 整合shiro
 
 -- 待排期  
-18. springboot3-shiro: 整合shiro   
 19. springboot3-security: 整合security  
 20. springboot3-jwt: 整合jwt  
 21. springboot3-docker: docker发布  
