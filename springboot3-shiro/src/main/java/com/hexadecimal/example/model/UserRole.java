@@ -6,7 +6,7 @@ import lombok.Data;
 import java.io.Serializable;
 
 @Data
-@TableName("user_role")
+@TableName("t_user_role")
 public class UserRole implements Serializable {
     private static final long serialVersionUID = -1L;
 
