@@ -38,7 +38,7 @@ public class UserRealm extends AuthorizingRealm {
         User user = userService.getOne(Wrappers.<User>lambdaQuery().eq(User::getUsername, username), true);
 
         if (user == null) {
-            throw new BaseException(ResponseCodeEnum.BAD_REQUEST, "登录失败，用户不存在");
+            throw new BaseException(ResponseCodeEnum.BAD_REQUEST, "用户不存在");
         }
         if (user.getEnabled()) {
             String password = new String(token.getPassword());
@@ -54,7 +54,7 @@ public class UserRealm extends AuthorizingRealm {
             if (user.getPassword().equals(password)) {
                 return new SimpleAuthenticationInfo(user, password, username);
             } else {
-                throw new BaseException(ResponseCodeEnum.BAD_REQUEST, "用户名或密码错误，登录失败");
+                throw new BaseException(ResponseCodeEnum.BAD_REQUEST, "用户名或密码错误");
             }
         }
 

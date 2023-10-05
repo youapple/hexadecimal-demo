@@ -22,12 +22,16 @@ public class ResultDTO<T> implements Serializable {
      */
     private T data;
 
-    public static ResultDTO<Void> success() {
-        return success(null);
+    public static <T> ResultDTO<T> success() {
+        return success("ok");
     }
 
-    public static ResultDTO<Void> success(String message) {
+    public static <T> ResultDTO<T> success(String message) {
         return success(message, null);
+    }
+
+    public static <T> ResultDTO<T> success(T data) {
+        return success("ok", data);
     }
 
     public static <T> ResultDTO<T> success(String message, T data) {
@@ -38,16 +42,16 @@ public class ResultDTO<T> implements Serializable {
         return resultDTO;
     }
 
-    public static ResultDTO<Void> error(String message) {
+    public static <T> ResultDTO<T> error(String message) {
         return error(ResponseCodeEnum.ERROR, message);
     }
 
-    public static ResultDTO<Void> error(ResponseCodeEnum responseCode, Throwable e) {
+    public static <T> ResultDTO<T> error(ResponseCodeEnum responseCode, Throwable e) {
         return error(responseCode, e.getMessage() != null ? e.getMessage() : "系统异常，请联系管理员！");
     }
 
-    public static ResultDTO<Void> error(ResponseCodeEnum responseCode, String message) {
-        ResultDTO<Void> resultDTO = new ResultDTO<>();
+    public static <T> ResultDTO<T> error(ResponseCodeEnum responseCode, String message) {
+        ResultDTO<T> resultDTO = new ResultDTO<>();
         resultDTO.setCode(responseCode.getCode());
         resultDTO.setMessage(message);
         return resultDTO;
