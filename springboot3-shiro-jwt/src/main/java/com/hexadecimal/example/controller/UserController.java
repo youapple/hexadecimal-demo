@@ -1,12 +1,12 @@
 package com.hexadecimal.example.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.hexadecimal.example.jwt.utils.JwtUtil;
 import com.hexadecimal.example.model.User;
 import com.hexadecimal.example.req.UserLoginDTO;
 import com.hexadecimal.example.res.ResultDTO;
 import com.hexadecimal.example.service.UserService;
+import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletResponse;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
@@ -21,7 +21,7 @@ import java.util.Map;
 @RequestMapping(path = "/user", produces = "application/json;charset=utf-8")
 public class UserController {
 
-    @Autowired
+    @Resource
     private JwtUtil jwtUtil;
 
     @Autowired
