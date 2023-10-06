@@ -58,7 +58,7 @@ public class AuthorizationFilter implements Filter {
             HttpServletResponse response = (HttpServletResponse) resp;
             response.setContentType("application/json;charset=utf-8");
 
-            ResultDTO<Void> resultDTO = ResultDTO.error(ResponseCodeEnum.UNAUTHORIZED, "正在访问未授权的资源");
+            ResultDTO resultDTO = ResultDTO.error(ResponseCodeEnum.UNAUTHORIZED, "正在访问未授权的资源");
             String data = JSON.toJSONString(resultDTO);
 
             response.getWriter().write(data);

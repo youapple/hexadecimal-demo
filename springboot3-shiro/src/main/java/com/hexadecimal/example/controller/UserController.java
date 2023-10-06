@@ -15,34 +15,34 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping(path = "/login", method = RequestMethod.POST)
-    public ResultDTO<Void> login(UserLoginDTO loginDTO) {
+    public ResultDTO login(UserLoginDTO loginDTO) {
         userService.login(loginDTO);
 
         return ResultDTO.success();
     }
 
     @RequestMapping(path = "/list", method = RequestMethod.POST)
-    public ResultDTO<Void> list() {
+    public ResultDTO list() {
         return ResultDTO.success("查询列表成功");
     }
 
     @RequestMapping(path = "/getById", method = RequestMethod.GET)
-    public ResultDTO<Void> getById() {
+    public ResultDTO getById() {
         return ResultDTO.success("查询详情成功");
     }
 
     @RequestMapping(path = "/save", method = RequestMethod.POST)
-    public ResultDTO<Void> save() {
+    public ResultDTO save() {
         return ResultDTO.success("保存成功");
     }
 
     @RequestMapping(path = "/delete", method = RequestMethod.GET)
-    public ResultDTO<Void> delete() {
+    public ResultDTO delete() {
         return ResultDTO.success("删除成功");
     }
 
     @RequestMapping(path = "/update", method = RequestMethod.POST)
-    public ResultDTO<Void> update() {
+    public ResultDTO update() {
         return ResultDTO.success("修改成功");
     }
 
