@@ -45,11 +45,6 @@ public class UserController {
         return ResultDTO.success(map);
     }
 
-    /**
-     * 访问该接口就需要有jwt认证
-     *
-     * @return
-     */
     @RequiresAuthentication
     @GetMapping("/logout")
     public ResultDTO<Void> logout() {

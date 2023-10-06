@@ -41,27 +41,23 @@ public class JwtFilter extends AccessControlFilter {
      * @param servletRequest
      * @param servletResponse
      * @throws Exception
-     * @return返回结果为true表明登录通过
+     * @return 返回结果为true表明登录通过
      */
     @Override
     protected boolean onAccessDenied(ServletRequest servletRequest, ServletResponse servletResponse) throws Exception {
         /**
-         * 这个地方和前端约定，要求前端将jwtToken放在请求的Header部分
-         * 所以以后发起请求的时候就需要在Header中放一个Authorization，值就是对应的Token
+         *  跟前端约定将jwtToken放在请求的Header的Authorization中，Authorization:token
          */
         log.info("onAccessDenied方法被调用");
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         String token = request.getHeader("Authorization");
-        if (token == null) {//如果token为空的话，返回true，交给控制层@RequiresAuthentication进行判断；也会达到没有权限的作用
+        //如果token为空的话，返回true，交给控制层@RequiresAuthentication进行判断；也会达到没有权限的作用
+        if (token == null) {
             return true;
         }
         JwtToken jwtToken = new JwtToken(token);
         try {
-            /**
-             * 进行登录处理
-             * 委托 realm 进行登录认证
-             * 所以这个地方最终还是调用AccountRealm进行的认证
-             */
+            //进行登录处理，委托realm进行登录认证，调用AccountRealm进行的认证
             getSubject(servletRequest, servletResponse).login(jwtToken);
         } catch (Exception e) {
             log.error("Subject login error:", e);

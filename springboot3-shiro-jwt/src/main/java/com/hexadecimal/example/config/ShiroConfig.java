@@ -47,25 +47,24 @@ public class ShiroConfig {
     public ShiroFilterFactoryBean shiroFilterFactoryBean(@Qualifier("securityManager") DefaultWebSecurityManager securityManager) {
         ShiroFilterFactoryBean shiroFilter = new ShiroFilterFactoryBean();
         shiroFilter.setSecurityManager(securityManager);
+
         /**
-         *  添加jwt过滤器，并在下面注册
-         *  也就是将jwtFilter注册到shiro的Filter中
-         *  指定除了login之外的请求都先经过jwtFilter
+         *  注册jwt过滤器，除/login外都先经过jwtFilter
          */
         HashMap<String, Filter> filterMap = new HashMap<>();
         filterMap.put("jwt", new JwtFilter());
         shiroFilter.setFilters(filterMap);
 
         // 拦截器
-        LinkedHashMap<String, String> filtRuleMap = new LinkedHashMap<>();
-        filtRuleMap.put("/login", "anon");
-        filtRuleMap.put("/**", "jwt");
-        shiroFilter.setFilterChainDefinitionMap(filtRuleMap);
+        LinkedHashMap<String, String> map = new LinkedHashMap<>();
+        map.put("/login", "anon");
+        map.put("/**", "jwt");
+        shiroFilter.setFilterChainDefinitionMap(map);
         return shiroFilter;
     }
 
     /**
-     * 下面的的bean是为了解决@RequiresAuthentication注解不生效的配置
+     * 解决@RequiresAuthentication注解不生效的配置
      */
     @Bean("lifecycleBeanPostProcessor")
     public LifecycleBeanPostProcessor lifecycleBeanPostProcessor() {
