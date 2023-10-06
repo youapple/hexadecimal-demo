@@ -28,7 +28,7 @@ public class BaseExceptionHandler {
      * @return
      */
     @ExceptionHandler(BaseException.class)
-    public ResultDTO<Void> handlerGlobalException(HttpServletResponse response, BaseException e) {
+    public ResultDTO handlerGlobalException(HttpServletResponse response, BaseException e) {
         log.error("请求异常：", e);
         response.setStatus(e.getResponseCode().getCode());
 
@@ -43,7 +43,7 @@ public class BaseExceptionHandler {
      */
     @ExceptionHandler(BindException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ResultDTO<Void> handlerBindException(BindException e) {
+    public ResultDTO handlerBindException(BindException e) {
         log.error("请求异常：", e);
         BindingResult bindingResult = e.getBindingResult();
         FieldError fieldError = bindingResult.getFieldError();
@@ -61,7 +61,7 @@ public class BaseExceptionHandler {
      */
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public ResultDTO<Void> handlerException(Exception e) {
+    public ResultDTO handlerException(Exception e) {
         log.error("请求异常：", e);
 
         return ResultDTO.error(ResponseCodeEnum.ERROR, e);

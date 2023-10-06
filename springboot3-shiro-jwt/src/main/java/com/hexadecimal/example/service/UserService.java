@@ -33,34 +33,6 @@ public class UserService extends ServiceImpl<UserMapper, User> {
     @Autowired
     private PermissionService permissionService;
 
-    public void login(UserLoginDTO loginDTO) {
-        String username = loginDTO.getUsername();
-
-        // 根据用户名查询用户信息
-        User user = super.getOne(Wrappers.<User>lambdaQuery().eq(User::getUsername, username), true);
-
-        if (user != null) {
-            // 如果用户被锁定，提前退出
-            if (user.getEnabled()) {
-                // shiro登录认证
-                UsernamePasswordToken token = new UsernamePasswordToken(username, loginDTO.getPassword());
-                Subject subject = SecurityUtils.getSubject();
-
-                subject.login(token);
-                // 设置session失效时间：永不超时
-                subject.getSession().setTimeout(-1001);
-
-                // 修改管理员上一次登录时间
-                user.setLastLoginTime(LocalDateTime.now());
-                mapper.updateById(user);
-            } else {
-                throw new BaseException(ResponseCodeEnum.FORBIDDEN, "账号已被锁定，禁止登录！");
-            }
-        } else {
-            throw new BaseException(ResponseCodeEnum.NOT_FOUND, "用户名不存在");
-        }
-    }
-
     public List<Permission> getPermissionByUsername(String username) {
         List<Permission> permissions = new ArrayList<>();
         User user = super.getOne(Wrappers.<User>lambdaQuery().eq(User::getUsername, username), true);

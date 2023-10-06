@@ -1,5 +1,6 @@
 package com.hexadecimal.example.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.hexadecimal.example.jwt.utils.JwtUtil;
 import com.hexadecimal.example.model.User;
@@ -27,17 +28,19 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/login")
-    public ResultDTO<Map<String, String>> login(@RequestBody @Validated UserLoginDTO userLoginDTO, HttpServletResponse response) {
-        User user = userService.getOne(new QueryWrapper<User>().eq("username", userLoginDTO.getUsername()));
+    public ResultDTO login(@RequestBody @Validated UserLoginDTO userLoginDTO, HttpServletResponse response) {
+        String username = userLoginDTO.getUsername();
+        String password = userLoginDTO.getPassword();
+        User user = userService.getOne(new LambdaQueryWrapper<User>().eq(User::getUsername, userLoginDTO.getUsername()));
         if (user == null) {
             return ResultDTO.error("用户名不存在");
         }
 
-        if (!user.getPassword().equals(userLoginDTO.getPassword())) {
+        if (!user.getPassword().equals(password)) {
             return ResultDTO.error("用户名或密码错误");
         }
 
-        String token = jwtUtil.generateToken(user.getId());
+        String token = jwtUtil.generateToken(username);
         response.setHeader(JwtUtil.HEADER, token);
         response.setHeader("Access-control-Expost-Headers", JwtUtil.HEADER);
         Map<String, String> map = new HashMap<>();
@@ -47,7 +50,7 @@ public class UserController {
 
     @RequiresAuthentication
     @GetMapping("/logout")
-    public ResultDTO<Void> logout() {
+    public ResultDTO logout() {
         // 退出登录
         SecurityUtils.getSubject().logout();
         return ResultDTO.success();

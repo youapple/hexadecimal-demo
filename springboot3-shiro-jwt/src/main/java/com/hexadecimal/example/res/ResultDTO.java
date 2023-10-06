@@ -6,7 +6,7 @@ import lombok.Data;
 import java.io.Serializable;
 
 @Data
-public class ResultDTO<T> implements Serializable {
+public class ResultDTO implements Serializable {
     private static final long serialVersionUID = -1L;
 
     /**
@@ -20,38 +20,38 @@ public class ResultDTO<T> implements Serializable {
     /**
      * 响应数据
      */
-    private T data;
+    private Object data;
 
-    public static <T> ResultDTO<T> success() {
+    public static ResultDTO success() {
         return success("ok");
     }
 
-    public static <T> ResultDTO<T> success(String message) {
+    public static ResultDTO success(String message) {
         return success(message, null);
     }
 
-    public static <T> ResultDTO<T> success(T data) {
+    public static ResultDTO success(Object data) {
         return success("ok", data);
     }
 
-    public static <T> ResultDTO<T> success(String message, T data) {
-        ResultDTO<T> resultDTO = new ResultDTO<>();
+    public static ResultDTO success(String message, Object data) {
+        ResultDTO resultDTO = new ResultDTO();
         resultDTO.setCode(ResponseCodeEnum.OK.getCode());
         resultDTO.setMessage(message);
         resultDTO.setData(data);
         return resultDTO;
     }
 
-    public static <T> ResultDTO<T> error(String message) {
+    public static ResultDTO error(String message) {
         return error(ResponseCodeEnum.ERROR, message);
     }
 
-    public static <T> ResultDTO<T> error(ResponseCodeEnum responseCode, Throwable e) {
+    public static ResultDTO error(ResponseCodeEnum responseCode, Throwable e) {
         return error(responseCode, e.getMessage() != null ? e.getMessage() : "系统异常，请联系管理员！");
     }
 
-    public static <T> ResultDTO<T> error(ResponseCodeEnum responseCode, String message) {
-        ResultDTO<T> resultDTO = new ResultDTO<>();
+    public static ResultDTO error(ResponseCodeEnum responseCode, String message) {
+        ResultDTO resultDTO = new ResultDTO();
         resultDTO.setCode(responseCode.getCode());
         resultDTO.setMessage(message);
         return resultDTO;

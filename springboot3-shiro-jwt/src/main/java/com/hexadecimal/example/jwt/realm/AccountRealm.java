@@ -1,5 +1,6 @@
 package com.hexadecimal.example.jwt.realm;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.hexadecimal.example.enums.ResponseCodeEnum;
 import com.hexadecimal.example.exception.BaseException;
 import com.hexadecimal.example.jwt.model.JwtToken;
@@ -43,9 +44,10 @@ public class AccountRealm extends AuthorizingRealm {
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
         String jwt = (String) authenticationToken.getPrincipal();
-        //获取jwt中关于用户的id
-        String id = jwtUtil.getClaimByToken(jwt).getSubject();
-        User user = userService.getById(Long.valueOf(id));//查询用户
+        // 获取jwt中关于用户名
+        String username = jwtUtil.getClaimsByToken(jwt).getSubject();
+        // 查询用户
+        User user = userService.getOne(new LambdaQueryWrapper<User>().eq(User::getUsername, username));
         if (user == null) {
             throw new BaseException(ResponseCodeEnum.BAD_REQUEST, "用户不存在");
         }
@@ -53,7 +55,7 @@ public class AccountRealm extends AuthorizingRealm {
             throw new BaseException(ResponseCodeEnum.BAD_REQUEST, "用户被锁定");
         }
 
-        Claims claims = jwtUtil.getClaimByToken(jwt);
+        Claims claims = jwtUtil.getClaimsByToken(jwt);
         if (jwtUtil.isTokenExpired(claims.getExpiration())) {
             throw new BaseException(ResponseCodeEnum.BAD_REQUEST, "token过期，请重新登录");
         }

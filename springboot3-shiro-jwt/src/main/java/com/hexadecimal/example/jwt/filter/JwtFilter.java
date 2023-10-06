@@ -2,7 +2,6 @@ package com.hexadecimal.example.jwt.filter;
 
 import com.hexadecimal.example.jwt.model.JwtToken;
 import com.hexadecimal.example.jwt.utils.JwtUtil;
-import jakarta.annotation.Resource;
 import jakarta.servlet.ServletRequest;
 import jakarta.servlet.ServletResponse;
 import jakarta.servlet.http.HttpServletRequest;
@@ -13,13 +12,9 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
-
 @Slf4j
 @Component
 public class JwtFilter extends AccessControlFilter {
-
-    @Resource
-    private JwtUtil jwtUtil;
 
     /**
      * isAccessAllowed()判断是否携带了有效的JwtToken
@@ -50,7 +45,7 @@ public class JwtFilter extends AccessControlFilter {
          */
         log.info("onAccessDenied方法被调用");
         HttpServletRequest request = (HttpServletRequest) servletRequest;
-        String token = request.getHeader("Authorization");
+        String token = request.getHeader(JwtUtil.HEADER);
         //如果token为空的话，返回true，交给控制层@RequiresAuthentication进行判断；也会达到没有权限的作用
         if (token == null) {
             return true;
