@@ -47,12 +47,12 @@ public class QuartzJobService {
     /**
      * 重启定时任务
      *
-     * @param jobName
-     * @param jobGroup
+     * @param triggerName
+     * @param triggerGroup
      * @param cron
      */
-    public void rescheduleJob(String jobName, String jobGroup, String cron) throws Exception {
-        TriggerKey triggerKey = TriggerKey.triggerKey(jobName, jobGroup);
+    public void rescheduleJob(String triggerName, String triggerGroup, String cron) throws Exception {
+        TriggerKey triggerKey = TriggerKey.triggerKey(triggerName, triggerGroup);
         CronTrigger cronTrigger = TriggerBuilder.newTrigger()
                 .withIdentity(triggerKey)
                 .startNow()
@@ -83,13 +83,15 @@ public class QuartzJobService {
 
     /**
      * 删除定时任务
-     *
      * @param jobName
      * @param jobGroup
+     * @param triggerName
+     * @param triggerGroup
+     * @throws Exception
      */
-    public void deleteJob(String jobName, String jobGroup) throws Exception {
-        scheduler.pauseTrigger(TriggerKey.triggerKey(jobName, jobGroup));
-        scheduler.unscheduleJob(TriggerKey.triggerKey(jobName, jobGroup));
+    public void deleteJob(String jobName, String jobGroup, String triggerName, String triggerGroup) throws Exception {
+        scheduler.pauseTrigger(TriggerKey.triggerKey(triggerName, triggerGroup));
+        scheduler.unscheduleJob(TriggerKey.triggerKey(triggerName, triggerGroup));
         scheduler.deleteJob(JobKey.jobKey(jobName, jobGroup));
     }
 

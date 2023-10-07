@@ -83,16 +83,16 @@ public class QuartzController {
     /**
      * 重启任务
      *
-     * @param jobName  任务名称
-     * @param jobGroup 任务组
+     * @param triggerName  触发器名称，示例：helloTrigger
+     * @param triggerGroup 触发器组，示例：helloTriggerGroup
      * @param cron     cron表达式
      * @return String
      */
     @PostMapping(path = "/rescheduleJob")
     @ResponseBody
-    public String rescheduleJob(String jobName, String jobGroup, String cron) {
+    public String rescheduleJob(String triggerName, String triggerGroup, String cron) {
         try {
-            quartzJobService.rescheduleJob(jobName, jobGroup, cron);
+            quartzJobService.rescheduleJob(triggerName, triggerGroup, cron);
             return "ok";
         } catch (Exception e) {
             e.printStackTrace();
@@ -103,15 +103,17 @@ public class QuartzController {
     /**
      * 删除任务
      *
-     * @param jobName  任务名称
-     * @param jobGroup 任务组
+     * @param jobName      任务名称，示例：helloJob
+     * @param jobGroup     任务组，示例：helloJobGroup
+     * @param triggerName  触发器名称，示例：helloTrigger
+     * @param triggerGroup 触发器组，示例：helloTriggerGroup
      * @return String
      */
     @PostMapping(path = "/deleteJob")
     @ResponseBody
-    public String deleteJob(String jobName, String jobGroup) {
+    public String deleteJob(String jobName, String jobGroup, String triggerName, String triggerGroup) {
         try {
-            quartzJobService.deleteJob(jobName, jobGroup);
+            quartzJobService.deleteJob(jobName, jobGroup, triggerName, triggerGroup);
             return "ok";
         } catch (Exception e) {
             e.printStackTrace();
