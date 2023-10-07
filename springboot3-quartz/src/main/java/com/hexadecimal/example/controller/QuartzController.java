@@ -123,8 +123,7 @@ public class QuartzController {
 
     /**
      * 查询所有定时任务
-     *
-     * @return String
+     * @return List<String>
      */
     @PostMapping(path = "/listJobs")
     @ResponseBody
