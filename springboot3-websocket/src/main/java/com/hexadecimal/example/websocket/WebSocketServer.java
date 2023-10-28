@@ -19,17 +19,17 @@ import java.util.concurrent.ConcurrentHashMap;
 public class WebSocketServer {
 
     /**
-     * 记录当前在线连接数。
+     * 记录当前在线连接数
      */
     private static int onlineCount = 0;
 
     /**
-     * 使用线程安全的ConcurrentHashMap来存放每个客户端对应的WebSocket对象。
+     * 使用线程安全的ConcurrentHashMap来存放每个客户端对应的WebSocket对象
      */
     private static ConcurrentHashMap<String, WebSocketServer> webSocketMap = new ConcurrentHashMap<>();
 
     /**
-     * 与某个客户端的连接会话，需要通过它来给客户端发送数据.
+     * 与某个客户端的连接会话，需要通过它来给客户端发送数据
      */
     private Session session;
 
@@ -87,8 +87,8 @@ public class WebSocketServer {
     @OnMessage
     public void onMessage(String message, Session session) {
         log.info("用户【" + uid + "】发送报文:" + message);
-        //可以群发消息
-        //消息保存到数据库、redis
+        //群发消息
+        //消息保存到数据库或者redis
         if (StringUtils.isNotBlank(message)) {
             try {
                 //解析发送的报文
