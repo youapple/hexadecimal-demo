@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: springboot3-i18n
+  # 资源信息
+  messages:
+    # 国际化资源文件路径，多个用","分隔
+    basename: i18n/messages
+
+# Logger Config
+logging:
+  level:
+    com.hexadecimal: debug
