@@ -23,7 +23,7 @@ maven: 3.5.4+
 
 -- 已完成  
 1. springboot3-mybatisplus：整合mybatis-plus  
-2. springboot3-druid：整合Druid，使用官方druid-spring-boot-3-starter集成，版本号：1.2.23，支持springboot3。
+2. springboot3-druid：整合Druid，使用官方druid-spring-boot-3-starter集成，版本号：1.2.23，支持springboot3。  
    springboot3-druid-2：整合Druid，使用原生方式集成，除druid控制台无法打开外，其余均可正常使用。
 3. springboot3-jpa：整合jpa  
 4. springboot3-dynamic-datasource：整合多数据源(Dynamic DataSource)  
