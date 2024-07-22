@@ -21,7 +21,6 @@ maven: 3.5.4+
 
 程序运行入口: ExampleApplication，示例工程：springboot3-example  
 
--- 已完成  
 1. springboot3-mybatisplus：整合mybatis-plus  
 2. springboot3-druid：整合Druid，使用官方druid-spring-boot-3-starter集成，版本号：1.2.23，支持springboot3。  
    springboot3-druid-2：整合Druid，使用原生方式集成，除druid控制台无法打开外，其余均可正常使用。
