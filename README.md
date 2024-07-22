@@ -43,9 +43,8 @@ maven: 3.5.4+
 18. springboot3-shiro: 整合shiro  
 19. springboot3-shiro-jwt: 整合shiro+jwt  
 20. springboot3-security-jwt: 整合security+jwt  
-
--- 待排期  
-21. springboot3-docker: docker发布  
+21. springboot3-i18n: 整合国际化
+22. springboot3-docker: docker发布  
 
 #### 参与贡献
 
